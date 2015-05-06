@@ -1,0 +1,144 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Fueleconomy</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- Loading Bootstrap -->
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+        <!-- Loading Flat UI -->
+        <link href="styles/flat-ui.min.css" rel="stylesheet">
+        <!-- Loading Custom CSS -->
+        <link href="styles/main.css" rel="stylesheet">
+        <!-- build:css(assets) styles/screen.css -->
+        <link rel="stylesheet" href="styles/screen.css">
+        <!-- endbuild -->
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <nav class="navbar navbar-inverse navbar-embossed">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">MilCal</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              
+              <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Log In</a></li>
+                    <!-- <li class="divider"></li> -->
+                    <li><a href="#">Sign In</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+        <div class="container-fluid">
+            <div class="jumbotron">
+                <div class="row text-center">
+                    <div class="col-lg-10 center-block jumbo-inner" style="float: none;">
+                        <span class="main-icon glyphicon glyphicon-tint"></span>
+                        <h1>Fuel economy of your vehicle!</h1>
+                        <h5>
+                            Lets find out the average relationship between the distance traveled and the amount of fuel consumed by your vehicle.
+                        </h5>
+                        <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <form id="mileageForm">
+                <div class="form-group">
+                    <label for="distanceField">How many miles your car has travelled so far:</label>
+                    <div class="input-group">
+                        <input id="distanceField" class="form-control" type="text" placeholder="odometer reading"/>
+                        <div class="input-group-btn">
+                            <select id="distance" name="distance" class="btn btn-default dropdown-toggle">
+                                <option value="mil">Miles</option>
+                                <option value="kms">KiloMeters</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="oldDistanceField">How many miles your car had travelled when you refilled the fuel last time:</label>
+                    <div class="input-group">
+                        <input id="oldDistanceField" class="form-control" type="text" placeholder="odometer old reading"/>
+                        <div class="input-group-btn">
+                            <select id="oldDistance" name="oldDistance" disabled class="btn btn-default dropdown-toggle">
+                                <option value="mil">Miles</option>
+                                <option value="kms">KiloMeters</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="fuelField">How much fuel you just filled in your car?</label>
+                    <div class="input-group">
+                        <input id="fuelField" type="text" class="form-control" type="text" placeholder="station pump reading"/>
+                        <div class="input-group-btn">
+                            <select id="fuelunit" name="fuelunit" class="btn btn-default dropdown-toggle">
+                                <option value="galn">Gallons</option>
+                                <option value="litr">Litres</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-group text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+        <footer class="footer">
+          <div class="container">
+            <p class="text-muted">Code licensed under <a rel="license" target="_blank" href="https://github.com/meenakshidogra/fueleconomy/blob/master/LICENSE">MIT</a>. Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></p>
+          </div>
+        </footer>
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <!--<script src="js/vendor/video.js"></script>-->
+        <script src="scripts/flat-ui.min.js"></script>
+        <script src="scripts/main.js"></script>
+        <script type="text/javascript">
+            jQuery(function(){
+                var mileageCalculator = new MileageCalculator();
+                    mileageCalculator.init();
+            });
+        </script>
+
+        <!-- build:js(assets) scripts/scripts.js -->
+        <!-- endbuild -->
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+
+    </body>
+</html>
